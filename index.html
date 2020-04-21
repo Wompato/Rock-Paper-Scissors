@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Death Battle</title>
+</head>
+<body>
+
+<p>Welcome to Death Battle (with rock, paper, scissors) if you wanna play open the <br>
+console and type in play()</p>
+
+<script>
+
+let playerScore = 0;
+let computerScore = 0;
+let tieScore = 0;
+
+
+function playerPlay() {
+    let playerSelection = prompt('Choose your weapon! Rock, Paper, or Scissors?')
+    return playerSelection;
+}
+
+function computerPlay() {
+    const moves = ['rock', 'paper', 'scissors'];
+    let computerSelection = moves[Math.floor(Math.random() * moves.length)];
+    return computerSelection;
+}
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === 'rock' && computerSelection === 'scissors') {
+        console.log(`You Win! You chose ${playerSelection} and computer chose ${computerSelection}`)
+        playerScore++
+        
+    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+        console.log(`You Win! You chose ${playerSelection} and computer chose ${computerSelection}`)
+        playerScore++
+        
+    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+        console.log(`You Win! You chose ${playerSelection} and computer chose ${computerSelection}`)
+        playerScore++
+        
+    } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+        console.log(`You Lose! You chose ${playerSelection} and computer chose ${computerSelection}`)
+        computerScore++
+        
+    } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+        console.log(`You Lose! You chose ${playerSelection} and computer chose ${computerSelection}`)
+        computerScore++
+        
+    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+        console.log(`You Lose! You chose ${playerSelection} and computer chose ${computerSelection}`)
+        computerScore++
+        
+    } else {
+        console.log(`You Tied! You chose ${playerSelection} and computer chose ${computerSelection}`)
+        tieScore++
+    }
+    
+}
+
+
+function play(){
+    for (rounds = 0; rounds < 5; rounds++) {
+        playRound(playerPlay(), computerPlay())
+        console.log("Computer has " + computerScore + " points.");
+        console.log("Player has " + playerScore + " points.");
+        console.log('Number of Ties ' + tieScore)
+        console.log('########################################################')
+                if (rounds === 3) {
+                    console.log('FINAL ROUND be careful!')
+                }
+    } 
+    winner()
+}
+
+
+function winner() {
+    if (playerScore > computerScore) {
+        console.log('Congratulations! You won the match! reload to try again!')
+        console.log(':D')
+    } else if (computerScore > playerScore){
+        console.log('Oh No! You\'ve lost the match! try again to exact youre revenge!')
+        console.log('D:')
+    } else {
+        console.log('It\'s a tie! play again for a chance to win!')
+        console.log('-_-')
+    }
+}
+</script>
+</body>
+</html>
